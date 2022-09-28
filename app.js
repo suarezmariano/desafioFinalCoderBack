@@ -21,9 +21,12 @@ app.use('/api/products', productsRouter);
 app.use('/api/cart', cartRouter);
 
 app.use('/', (req, res) => {
-  res.redirect('/api/products');
+  res.send('hola');
 });
 
 app.use((req, res, next) => {
-  res.status(404).render('not-found');
+  res.status(404).render({
+    error: -2,
+    descripcion: `${req.baseUrl}${baseUrl} método ${req.method} no implementada`,
+  });
 });
