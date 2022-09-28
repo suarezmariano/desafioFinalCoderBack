@@ -2,9 +2,11 @@
   "name": "desafiofinalcoderback",
   "version": "1.0.0",
   "description": "Para el curso de Backend de Coderhouse Argentina.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon.app.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/suarezmariano/desafioFinalCoderBack/issues"
   },
-  "homepage": "https://github.com/suarezmariano/desafioFinalCoderBack#readme"
+  "homepage": "https://github.com/suarezmariano/desafioFinalCoderBack#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
