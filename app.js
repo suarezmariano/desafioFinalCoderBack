@@ -24,7 +24,7 @@ app.use('/', (req, res) => {
   res.send('hola');
 });
 
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.status(404).render({
     error: -2,
     descripcion: `${req.baseUrl}${baseUrl} método ${req.method} no implementada`,
