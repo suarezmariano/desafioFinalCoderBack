@@ -14,8 +14,8 @@ const server = app.listen(port, () => {
 server.on('error', (error) => console.log(`hubo un error ${error}`));
 
 //ROUTES
-const productsRouter = require('./router/productsRouter');
-const cartsRouter = require('./router/cartsRouter');
+const productsRouter = require('./src/router/productsRouter');
+const cartsRouter = require('./src/router/cartsRouter');
 
 app.use('/api/products', productsRouter);
 app.use('/api/cart', cartsRouter);
