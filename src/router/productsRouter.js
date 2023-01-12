@@ -2,8 +2,12 @@ const express = require('express');
 const router = express.Router();
 
 const ProductsController = require('../controllers/productsController');
+const manager = new ProductsController();
 
-router.get('/', ProductsController.getAll);
+router.get('/', (req, res) => {
+  let products = manager.getAll();
+  res.send(products);
+});
 
 router.get('/:id', (req, res) => {
   res.send({ status: 200, message: 'Hello GET By Id' });

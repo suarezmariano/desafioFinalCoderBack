@@ -1,14 +1,15 @@
 const fs = require('fs');
 
-const file = './data/products.json';
+const file = '.src/data/products.json';
 
 class productsController {
   getAll = async () => {
     if (!fs.existsSync(file)) {
-      return { error: 0, descripcion: 'No existe el archivo' };
+      return { error: 0, message: 'No existe el archivo' };
     } else {
       let data = await fs.promises.readFile(file, 'utf-8');
-      return JSON.parse(data);
+      let products = JSON.parse(data);
+      return { status: 'success', message: products };
     }
   };
 }
