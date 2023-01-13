@@ -5,8 +5,10 @@ const ProductsController = require('../controllers/productsController');
 const manager = new ProductsController();
 
 router.get('/', (req, res) => {
-  let products = manager.getAll();
-  res.send(products);
+  manager
+    .getAll()
+    .then((result) => res.send(result))
+    .catch((err) => res.send({ error: 0, message: err }));
 });
 
 router.get('/:id', (req, res) => {
