@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   manager
     .getAll()
     .then((result) => res.send(result))
-    .catch((err) => res.send({ error: 0, message: err }));
+    .catch((err) => res.status(404).send({ error: 0, message: err }));
 });
 
 router.get('/:id', (req, res) => {
