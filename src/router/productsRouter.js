@@ -10,12 +10,13 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  const product = await manager.getById();
+  const product = await manager.getById(parseInt(req.params.id));
   res.send(product);
 });
 
-router.post('/', (req, res) => {
-  res.send({ status: 200, message: `POST productos con id ${req.params.id}` });
+router.post('/', async (req, res) => {
+  const newProduct = await manager.createProduct(req.body);
+  res.send(newProduct);
 });
 
 router.put('/:id', (req, res) => {

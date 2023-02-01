@@ -32,6 +32,32 @@ class productsController {
       return { error: -3, descripcion: 'El archivo de productos no existe' };
     }
   }
+
+  async createProduct(p) {
+    let products = [];
+    let newProduct;
+
+    try {
+      if (fs.existsSync(this.path)) {
+        products = await this.getProducts();
+        newProduct = {
+          id: products[products.length - 1].id + 1,
+          timestamp: Date.now(),
+          ...p,
+        };
+      } else {
+        newProduct = { id: 1, timestamp: Date.now(), ...p };
+      }
+
+      await fs.promises.writeFile(
+        this.path,
+        JSON.stringify([...products, newProduct], null, 2)
+      );
+      return newProduct;
+    } catch (e) {
+      return { error: -5, message: 'No se pudo crear el producto nuevo' };
+    }
+  }
 }
 
 module.exports = productsController;
