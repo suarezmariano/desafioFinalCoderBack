@@ -18,5 +18,15 @@
     "url": "www.saraza/com/coca.jpeg",
     "precio": 120.6,
     "stock": 30
+  },
+  {
+    "id": 3,
+    "timestamp": 1675221765157,
+    "nombre": "Queso",
+    "descripcion": "La Serenisima",
+    "codigo": 145,
+    "url": "www.saraza/com/queso.jpeg",
+    "precio": 1432,
+    "stock": 3
   }
 ]

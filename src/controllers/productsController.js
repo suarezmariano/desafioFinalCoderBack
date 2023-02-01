@@ -6,11 +6,13 @@ class productsController {
   }
 
   async getAll() {
-    try {
+    if (fs.existsSync(this.path)) {
       return JSON.parse(await fs.promises.readFile(this.path, 'utf-8'));
-    } catch (e) {
-      return { error: -3, descripcion: 'El archivo de productos no existe' };
     }
+    return { error: -3, descripcion: 'El archivo de productos no existe' };
+  }
+  catch(e) {
+    return { error: -4, descripcion: 'Error al leer el archivo de productos' };
   }
 
   async getById(id) {
@@ -25,7 +27,7 @@ class productsController {
       throw new Error(`No existe el producto de id ${id}`);
     } catch (e) {
       if (e.message.startsWith('No existe el producto de id')) {
-        return { error: -4, descripcion: e.message };
+        return { error: -5, descripcion: e.message };
       }
       return { error: -3, descripcion: 'El archivo de productos no existe' };
     }
@@ -37,7 +39,7 @@ class productsController {
 
     try {
       if (fs.existsSync(this.path)) {
-        products = await this.getProducts();
+        products = await this.getAll();
         newProduct = {
           id: products[products.length - 1].id + 1,
           timestamp: Date.now(),
@@ -53,7 +55,7 @@ class productsController {
       );
       return newProduct;
     } catch (e) {
-      return { error: -5, message: 'No se pudo crear el producto nuevo' };
+      return { error: -6, message: 'No se pudo crear el producto nuevo' };
     }
   }
 }
