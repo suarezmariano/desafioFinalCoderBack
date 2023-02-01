@@ -1,14 +1,19 @@
-import fs from 'fs';
+const fs = require('fs');
 
-import file from '.src/data/products.json';
+const file = '.src/data/products.json';
 
 class productsController {
-  getAll = async () => {
-    if (!fs.existsSync(file))
-      return { error: 0, message: 'No existe el archivo' };
-    let data = await fs.promises.readFile(file, 'utf-8');
-    return JSON.parse(data);
-  };
+  constructor(path) {
+    this.path = path;
+  }
+
+  async getAll() {
+    try {
+      return JSON.parse(await fs.promises.readFile(this.path, 'utf-8'));
+    } catch (e) {
+      return { error: -3, descripcion: 'El archivo de productos no existe' };
+    }
+  }
 }
 
-exports = productsController;
+module.exports = productsController;

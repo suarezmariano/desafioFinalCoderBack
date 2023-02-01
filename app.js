@@ -1,7 +1,8 @@
-import express from 'express';
-import productsRouter from './src/router/productsRouter';
-import cartsRouter from './src/router/cartsRouter';
+const express = require('express');
 const app = express();
+
+const productsRouter = require('./src/router/productsRouter');
+const cartsRouter = require('./src/router/cartsRouter');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

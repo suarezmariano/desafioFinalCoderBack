@@ -1,8 +1,8 @@
-import express from 'express'
-import router from express.Router()
+const express = require('express');
+const router = express.Router();
 
-import ProductsController from '../controllers/productsController'
-import manager from new ProductsController();
+const ProductsController = require('../controllers/productsController');
+const manager = new ProductsController();
 
 router.get('/', (req, res) => {
   manager
@@ -12,19 +12,22 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  res.send({ status: 200, message: 'Hello GET By Id' });
+  res.send({ status: 200, message: `GET productos con id ${req.params.id}` });
 });
 
 router.post('/', (req, res) => {
-  res.send({ status: 200, message: 'Hello POST' });
+  res.send({ status: 200, message: `POST productos con id ${req.params.id}` });
 });
 
 router.put('/:id', (req, res) => {
-  res.send({ status: 200, message: 'Hello PUT' });
+  res.send({ status: 200, message: `PUT productos con id ${req.params.id}` });
 });
 
 router.delete('/:id', (req, res) => {
-  res.send({ status: 200, message: 'Hello DELETE' });
+  res.send({
+    status: 200,
+    message: `DELETE productos con id ${req.params.id}`,
+  });
 });
 
-exports = router;
+module.exports = router;
