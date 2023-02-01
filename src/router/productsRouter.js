@@ -4,15 +4,14 @@ const router = express.Router();
 const ProductsController = require('../controllers/productsController');
 const manager = new ProductsController();
 
-router.get('/', (req, res) => {
-  manager
-    .getAll()
-    .then((result) => res.send(result))
-    .catch((err) => res.status(404).send({ error: 0, message: err }));
+router.get('/', async (req, res) => {
+  const products = await manager.getAll();
+  res.send(products);
 });
 
-router.get('/:id', (req, res) => {
-  res.send({ status: 200, message: `GET productos con id ${req.params.id}` });
+router.get('/:id', async (req, res) => {
+  const product = await manager.getById();
+  res.send(product);
 });
 
 router.post('/', (req, res) => {
