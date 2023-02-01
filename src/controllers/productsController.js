@@ -1,7 +1,5 @@
 const fs = require('fs');
 
-const file = '.src/data/products.json';
-
 class productsController {
   constructor(path) {
     this.path = path;

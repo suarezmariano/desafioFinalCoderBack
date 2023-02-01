@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const ProductsController = require('../controllers/productsController');
-const manager = new ProductsController();
+const manager = new ProductsController('src/data/products.json');
 
 router.get('/', async (req, res) => {
   const products = await manager.getAll();
