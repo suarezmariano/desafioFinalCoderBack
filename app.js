@@ -19,3 +19,10 @@ const cartsRouter = require('./src/router/cartsRouter');
 
 app.use('/api/products', productsRouter);
 app.use('/api/cart', cartsRouter);
+
+app.use((req, res) => {
+  res.status(404).send({
+    error: -2,
+    descripcion: `Ruta ${req.baseUrl}${req.url} metodo ${req.method} no implementada`,
+  });
+});
