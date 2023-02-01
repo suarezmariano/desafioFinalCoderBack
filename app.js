@@ -1,4 +1,6 @@
-const express = require('express');
+import express from 'express';
+import productsRouter from './src/router/productsRouter';
+import cartsRouter from './src/router/cartsRouter';
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -14,12 +16,8 @@ const server = app.listen(port, () => {
 server.on('error', (error) => console.log(`hubo un error ${error}`));
 
 //ROUTES
-const productsRouter = require('./src/router/productsRouter');
-const cartsRouter = require('./src/router/cartsRouter');
-
 app.use('/api/products', productsRouter);
 app.use('/api/cart', cartsRouter);
-
 app.use((req, res) => {
   res.status(404).send({
     error: -2,

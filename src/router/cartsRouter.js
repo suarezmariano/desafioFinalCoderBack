@@ -1,4 +1,4 @@
-const express = require('express');
-const router = express.Router();
+import express from 'express'
+import router from express.Router()
 
-module.exports = router;
+exports = router;

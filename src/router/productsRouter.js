@@ -1,8 +1,8 @@
-const express = require('express');
-const router = express.Router();
+import express from 'express'
+import router from express.Router()
 
-const ProductsController = require('../controllers/productsController');
-const manager = new ProductsController();
+import ProductsController from '../controllers/productsController'
+import manager from new ProductsController();
 
 router.get('/', (req, res) => {
   manager
@@ -27,4 +27,4 @@ router.delete('/:id', (req, res) => {
   res.send({ status: 200, message: 'Hello DELETE' });
 });
 
-module.exports = router;
+exports = router;

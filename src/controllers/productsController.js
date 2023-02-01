@@ -1,6 +1,6 @@
-const fs = require('fs');
+import fs from 'fs';
 
-const file = '.src/data/products.json';
+import file from '.src/data/products.json';
 
 class productsController {
   getAll = async () => {
@@ -11,4 +11,4 @@ class productsController {
   };
 }
 
-module.exports = productsController;
+exports = productsController;
