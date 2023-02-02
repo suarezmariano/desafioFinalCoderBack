@@ -27,11 +27,9 @@ router.put('/:id', async (req, res) => {
   res.send(product);
 });
 
-router.delete('/:id', (req, res) => {
-  res.send({
-    status: 200,
-    message: `DELETE productos con id ${req.params.id}`,
-  });
+router.delete('/:id', async (req, res) => {
+  const product = await manager.deleteProduct(parseInt(req.params.id));
+  res.send(product);
 });
 
 module.exports = router;

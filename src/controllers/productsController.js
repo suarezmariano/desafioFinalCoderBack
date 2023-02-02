@@ -72,10 +72,36 @@ class productsController {
         );
         return products[index];
       } else {
-        return { error: -5, descripcion: `No existe el producto de id ${id}` };
+        return { error: -5, descripcion: `No existe el producto con ID ${id}` };
       }
     } catch (e) {
       return { error: -7, message: 'No se pudo modificar el producto' };
+    }
+  }
+
+  async deleteProduct(id) {
+    try {
+      const products = await this.getAll();
+      if (products.error) {
+        return { ...products };
+      }
+
+      const index = products.findIndex((p) => p.id === id);
+      if (index !== -1) {
+        await fs.promises.writeFile(
+          this.path,
+          JSON.stringify(
+            products.filter((p) => p.id !== id),
+            null,
+            2
+          )
+        );
+        return products[index];
+      } else {
+        return { error: -5, descripcion: `No existe el producto con ID ${id}` };
+      }
+    } catch (e) {
+      return { error: -8, descripcion: 'No se pudo borrar el producto' };
     }
   }
 }
