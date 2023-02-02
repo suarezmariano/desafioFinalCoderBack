@@ -19,6 +19,7 @@ server.on('error', (error) => console.log(`hubo un error ${error}`));
 //ROUTES
 app.use('/api/products', productsRouter);
 app.use('/api/cart', cartsRouter);
+
 app.use((req, res) => {
   res.status(404).send({
     error: -2,

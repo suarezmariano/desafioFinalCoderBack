@@ -2,31 +2,41 @@
   {
     "id": 1,
     "timestamp": 1664147414665,
-    "nombre": "Coca Cola",
-    "descripcion": "Cero calorias - 3 litros",
+    "nombre": "Mesa",
+    "descripcion": "Cuatro patas",
     "codigo": 10,
-    "url": "www.saraza/com/coca.jpeg",
-    "precio": 120.6,
+    "url": "www.muebles.com/mesa.jpeg",
+    "precio": 2429,
     "stock": 30
   },
   {
     "id": 2,
     "timestamp": 1664148031355,
-    "nombre": "Coca Cola",
-    "descripcion": "Cero calorias - 3 litros",
+    "nombre": "Silla",
+    "descripcion": "De cuero",
     "codigo": 10,
-    "url": "www.saraza/com/coca.jpeg",
-    "precio": 120.6,
-    "stock": 30
+    "url": "www.muebles.com/silla.jpeg",
+    "precio": 1999,
+    "stock": 25
   },
   {
     "id": 3,
     "timestamp": 1675221765157,
-    "nombre": "Queso",
-    "descripcion": "La Serenisima",
+    "nombre": "Sillón",
+    "descripcion": "Dos cuerpos",
     "codigo": 145,
-    "url": "www.saraza/com/queso.jpeg",
-    "precio": 1432,
-    "stock": 3
+    "url": "www.muebles.com/sillon.jpeg",
+    "precio": 14999,
+    "stock": 8
+  },
+  {
+    "id": 4,
+    "timestamp": 1675305562542,
+    "nombre": "Copa",
+    "descripcion": "De vidrio",
+    "codigo": 1435,
+    "url": "www.muebles.com/copa.jpeg",
+    "precio": 549,
+    "stock": 50
   }
 ]

@@ -19,8 +19,12 @@ router.post('/', async (req, res) => {
   res.send(newProduct);
 });
 
-router.put('/:id', (req, res) => {
-  res.send({ status: 200, message: `PUT productos con id ${req.params.id}` });
+router.put('/:id', async (req, res) => {
+  const product = await manager.updateProduct(
+    parseInt(req.params.id),
+    req.body
+  );
+  res.send(product);
 });
 
 router.delete('/:id', (req, res) => {

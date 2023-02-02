@@ -17,23 +17,23 @@ class productsController {
 
   async getById(id) {
     try {
-      const products = JSON.parse(
-        await fs.promises.readFile(this.path, 'utf-8')
-      );
+      const products = await this.getAll();
       const product = products.find((p) => p.id === id);
       if (product) {
         return product;
       }
-      throw new Error(`No existe el producto de id ${id}`);
+      return {
+        error: -5,
+        descripcion: `No existe el producto con ID nro ${id}`,
+      };
     } catch (e) {
-      if (e.message.startsWith('No existe el producto de id')) {
-        return { error: -5, descripcion: e.message };
+      if (!e.message.startsWith('No existe el producto de id')) {
+        return { error: -3, descripcion: 'El archivo de productos no existe' };
       }
-      return { error: -3, descripcion: 'El archivo de productos no existe' };
     }
   }
 
-  async createProduct(p) {
+  async createProduct(prod) {
     let products = [];
     let newProduct;
 
@@ -43,10 +43,10 @@ class productsController {
         newProduct = {
           id: products[products.length - 1].id + 1,
           timestamp: Date.now(),
-          ...p,
+          ...prod,
         };
       } else {
-        newProduct = { id: 1, timestamp: Date.now(), ...p };
+        newProduct = { id: 1, timestamp: Date.now(), ...prod };
       }
 
       await fs.promises.writeFile(
@@ -56,6 +56,26 @@ class productsController {
       return newProduct;
     } catch (e) {
       return { error: -6, message: 'No se pudo crear el producto nuevo' };
+    }
+  }
+
+  async updateProduct(id, prod) {
+    try {
+      const products = await this.getAll();
+
+      const index = products.findIndex((p) => p.id === id);
+      if (index !== -1) {
+        products[index] = { ...products[index], ...prod };
+        await fs.promises.writeFile(
+          this.path,
+          JSON.stringify([...products], null, 2)
+        );
+        return products[index];
+      } else {
+        return { error: -5, descripcion: `No existe el producto de id ${id}` };
+      }
+    } catch (e) {
+      return { error: -7, message: 'No se pudo modificar el producto' };
     }
   }
 }
