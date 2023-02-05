@@ -40,11 +40,15 @@ class productsController {
     try {
       if (fs.existsSync(this.path)) {
         products = await this.getAll();
-        newProduct = {
-          id: products[products.length - 1].id + 1,
-          timestamp: Date.now(),
-          ...prod,
-        };
+        if (products.length > 0) {
+          newProd = {
+            id: products[products.length - 1].id + 1,
+            timestamp: Date.now(),
+            ...p,
+          };
+        } else {
+          newProd = { id: 1, timestamp: Date.now(), ...p };
+        }
       } else {
         newProduct = { id: 1, timestamp: Date.now(), ...prod };
       }
