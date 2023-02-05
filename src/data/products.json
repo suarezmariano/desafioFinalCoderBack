@@ -18,25 +18,5 @@
     "url": "www.muebles.com/silla.jpeg",
     "precio": 1999,
     "stock": 25
-  },
-  {
-    "id": 3,
-    "timestamp": 1675221765157,
-    "nombre": "Sillón",
-    "descripcion": "Dos cuerpos",
-    "codigo": 145,
-    "url": "www.muebles.com/sillon.jpeg",
-    "precio": 14999,
-    "stock": 8
-  },
-  {
-    "id": 4,
-    "timestamp": 1675305562542,
-    "nombre": "Copa",
-    "descripcion": "De vidrio",
-    "codigo": 1435,
-    "url": "www.muebles.com/copa.jpeg",
-    "precio": 549,
-    "stock": 50
   }
 ]

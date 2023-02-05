@@ -6,6 +6,7 @@ const cartsRouter = require('./src/router/cartsRouter');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.set('json spaces', 2);
 
 //SERVER
 const port = process.env.PORT || 8080;
@@ -17,6 +18,7 @@ const server = app.listen(port, () => {
 server.on('error', (error) => console.log(`hubo un error ${error}`));
 
 //ROUTES
+
 app.use('/api/products', productsRouter);
 app.use('/api/cart', cartsRouter);
 

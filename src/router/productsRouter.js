@@ -4,6 +4,19 @@ const router = express.Router();
 const ProductsController = require('../controllers/productsController');
 const manager = new ProductsController('src/data/products.json');
 
+const ADMIN = true;
+
+const isAdmin = (req, res, next) => {
+  if (ADMIN) {
+    next();
+  } else {
+    res.send({
+      error: -1,
+      descripcion: `Ruta ${req.baseUrl}${req.url} metodo ${req.method} no autorizada`,
+    });
+  }
+};
+
 const IdCheck = (req, res, next) => {
   const id = parseInt(req.params.id);
   if (isNaN(id)) {
@@ -61,35 +74,27 @@ const productCheck = (req, res, next) => {
     });
     return;
   }
-  next();
+  console.log(req.body), next();
 };
 
 router.get('/', async (req, res) => {
-  const products = await manager.getAll();
-  res.send(products);
+  res.send(await manager.getAll());
 });
 
 router.get('/:id', IdCheck, async (req, res) => {
-  const product = await manager.getById(req.id);
-  res.send(product);
+  res.send(await manager.getById(req.id));
 });
 
-router.post('/', productCheck, async (req, res) => {
-  const newProduct = await manager.createProduct(req.body);
-  res.send(newProduct);
+router.post('/', isAdmin, productCheck, async (req, res) => {
+  res.send(await manager.createProduct(req.body));
 });
 
-router.put('/:id', IdCheck, productCheck, async (req, res) => {
-  const product = await manager.updateProduct(
-    parseInt(req.params.id),
-    req.body
-  );
-  res.send(product);
+router.put('/:id', isAdmin, IdCheck, productCheck, async (req, res) => {
+  res.send(await manager.updateProduct(req.id, req.body));
 });
 
-router.delete('/:id', IdCheck, async (req, res) => {
-  const product = await manager.deleteProduct(parseInt(req.params.id));
-  res.send(product);
+router.delete('/:id', isAdmin, IdCheck, async (req, res) => {
+  res.send(await manager.deleteProduct(req.id));
 });
 
 module.exports = router;
