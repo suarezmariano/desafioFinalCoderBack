@@ -14,7 +14,7 @@
     "timestamp": 1664148031355,
     "nombre": "Leche",
     "descripcion": "La Serenisima",
-    "codigo": 145,
+    "codigo": 333,
     "url": "www.saraza/com/leche.jpg",
     "precio": 1432,
     "stock": 3
@@ -24,35 +24,7 @@
     "timestamp": 1675566518870,
     "nombre": "Leche",
     "descripcion": "La Serenisima",
-    "codigo": 145,
-    "url": "www.saraza/com/leche.jpg",
-    "precio": 1432,
-    "stock": 3
-  },
-  {
-    "id": 4,
-    "timestamp": 1675566580478,
-    "nombre": "Leche",
-    "descripcion": "La Serenisima",
-    "codigo": 145,
-    "url": "www.saraza/com/leche.jpg",
-    "precio": 1432,
-    "stock": 3
-  },
-  {
-    "id": 5,
-    "timestamp": 1675566587388,
-    "nombre": "Leche",
-    "codigo": 145,
-    "url": "www.saraza/com/leche.jpg",
-    "precio": 1432,
-    "stock": 3
-  },
-  {
-    "id": 6,
-    "timestamp": 1675566611073,
-    "nombre": "Leche",
-    "codigo": 145,
+    "codigo": 333,
     "url": "www.saraza/com/leche.jpg",
     "precio": 1432,
     "stock": 3
