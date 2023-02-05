@@ -36,11 +36,11 @@ const productCheck = (req, res, next) => {
     res.send({ error: -11, descripcion: 'Debe ingresar nombre de producto' });
     return;
   }
-
+  /*
   if (!body.descripcion) {
     req.descripcion = '';
     return;
-  }
+  }*/
 
   if (!body.url || body.url === '') {
     res.send({

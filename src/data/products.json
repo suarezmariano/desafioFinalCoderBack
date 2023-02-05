@@ -5,18 +5,56 @@
     "nombre": "Mesa",
     "descripcion": "Cuatro patas",
     "codigo": 10,
-    "url": "www.muebles.com/mesa.jpeg",
+    "url": "www.muebles.com/mesa.jpg",
     "precio": 2429,
     "stock": 30
   },
   {
     "id": 2,
     "timestamp": 1664148031355,
-    "nombre": "Silla",
-    "descripcion": "De cuero",
-    "codigo": 10,
-    "url": "www.muebles.com/silla.jpeg",
-    "precio": 1999,
-    "stock": 25
+    "nombre": "Leche",
+    "descripcion": "La Serenisima",
+    "codigo": 145,
+    "url": "www.saraza/com/leche.jpg",
+    "precio": 1432,
+    "stock": 3
+  },
+  {
+    "id": 3,
+    "timestamp": 1675566518870,
+    "nombre": "Leche",
+    "descripcion": "La Serenisima",
+    "codigo": 145,
+    "url": "www.saraza/com/leche.jpg",
+    "precio": 1432,
+    "stock": 3
+  },
+  {
+    "id": 4,
+    "timestamp": 1675566580478,
+    "nombre": "Leche",
+    "descripcion": "La Serenisima",
+    "codigo": 145,
+    "url": "www.saraza/com/leche.jpg",
+    "precio": 1432,
+    "stock": 3
+  },
+  {
+    "id": 5,
+    "timestamp": 1675566587388,
+    "nombre": "Leche",
+    "codigo": 145,
+    "url": "www.saraza/com/leche.jpg",
+    "precio": 1432,
+    "stock": 3
+  },
+  {
+    "id": 6,
+    "timestamp": 1675566611073,
+    "nombre": "Leche",
+    "codigo": 145,
+    "url": "www.saraza/com/leche.jpg",
+    "precio": 1432,
+    "stock": 3
   }
 ]
