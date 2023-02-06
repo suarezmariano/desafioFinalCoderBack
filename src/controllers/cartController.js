@@ -86,7 +86,7 @@ class cartsController {
   }
 
   async addProductToCart(id, p) {
-    const carts = await this.getCarts();
+    const carts = await this.getAll();
     const index = carts.findIndex((c) => c.id === id);
     const newProd = p;
 
@@ -118,7 +118,7 @@ class cartsController {
   }
 
   async deleteProductFromCart(cartId, prodId) {
-    const carts = await this.getCarts();
+    const carts = await this.getAll();
     const index = carts.findIndex((c) => c.id === cartId);
 
     if (index === -1) {
