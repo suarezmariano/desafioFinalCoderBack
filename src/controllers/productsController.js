@@ -27,7 +27,7 @@ class productsController {
         descripcion: `No existe el producto con ID nro ${id}`,
       };
     } catch (e) {
-      if (!e.message.startsWith('No existe el producto de id')) {
+      if (!e.message.startsWith('No existe el producto con ID')) {
         return { error: -3, descripcion: 'El archivo de productos no existe' };
       }
     }
