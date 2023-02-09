@@ -15,22 +15,15 @@ class cartsController {
     return { error: -4, descripcion: 'Error al leer el archivo de carritos' };
   }
 
-  async getById(id) {
-    try {
-      const carts = await this.getAll();
-      const cart = carts.find((p) => p.id === id);
-      if (cart) {
-        return cart;
-      }
-      return {
-        error: -5,
-        descripcion: `No existe el carrito con ID nro ${id}`,
-      };
-    } catch (e) {
-      if (!e.message.startsWith('No existe el carrito con ID')) {
-        return { error: -3, descripcion: 'El archivo de carritos no existe' };
-      }
+  async getCartProducts(id) {
+    const carts = await this.getAll();
+
+    const cart = carts.find((c) => c.id === id);
+    if (cart) {
+      return cart.productos;
     }
+
+    throw { error: -5, descripcion: `No existe el carrito con ID ${id}` };
   }
 
   async createCart(cart) {
